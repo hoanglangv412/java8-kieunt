@@ -12,83 +12,129 @@ namespace OOPDAY1.com.dd.kieunt.dao
         public List<Accessory> accessoryTable = new List<Accessory>();
         public Database instant;
         public Database() { }
+        const string productName = "product";
+        const string categoryName = "category";
+        const string accessoryName = "accessory";
+
         /// <summary>
         /// them object vao bang
         /// </summary>
         /// <param name="name" value="string"></param>
         /// <param name="row" value="object"></param>
-        /// <returns name="flag" value="int"></returns>
-        public int insertTable(string name, object row)
+        /// <returns name="checkAction" value="int"></returns>
+        public int insertTable(string name, BaseRow row)
         {
-            int flag = 0;
-            if (name == "product")
+            int checkAction = 0;
+            if (name == productName)
             {
                 productTable.Add((Product)row);
-                flag = 1;
+                checkAction = 1;
             }
-            if (name == "category")
+
+            if (name == categoryName)
             {
                 categoryTable.Add((Category)row);
-                flag = 1;
+                checkAction = 1;
             }
-            if (name == "accessory")
+
+            if (name == accessoryName)
             {
                 accessoryTable.Add((Accessory)row);
-                flag = 1;
+                checkAction = 1;
             }
-            return flag;
+
+            return checkAction;
         }
+
+        /// <summary>
+        /// lay danh sach
+        /// </summary>
+        /// <param name="name" value="string"></param>
+        /// <returns name="returnList" value="List<object>"></returns>
+        public List<object> selectTable(string name)
+        {
+            List<object> returnList = new List<object>();
+            if (name == productName)
+            {
+                foreach (Product item in productTable)
+                {
+                    returnList.Add(item);
+                }
+            }
+
+            if (name == categoryName)
+            {
+                foreach (Category item in categoryTable)
+                {
+                    returnList.Add(item);
+                }
+            }
+
+            if (name == accessoryName)
+            {
+                foreach (Accessory item in accessoryTable)
+                {
+                    returnList.Add(item);
+                }
+            }
+
+            return returnList;
+        }
+
         /// <summary>
         /// update table 
         /// </summary>
         /// <param name="name" value="string"></param>
         /// <param name="row" value="object"></param>
-        /// <returns name="flag" value="int"></returns>
+        /// <returns name="checkAction" value="int"></returns>
         public int updateTable(string name, object row)
         {
-            int flag = 0;
-            if (name == "product")
+            int checkAction = 0;
+            if (name == productName)
             {
                 Product product = new Product();
                 product = (Product)row;
-                foreach (Product item in productTable)
+                for(int i = 0; i < productTable.Count; i++)
                 {
-                    if (item.id == product.id)
+                    if(productTable[i].id == product.id)
                     {
-                        item.name = product.name;
-                        item.categoryId = product.categoryId;
-                        flag = 1;
+                        productTable[i] = product;
+                        checkAction = 1;
                     }
                 }
             }
-            if (name == "category")
+
+            if (name == categoryName)
             {
                 Category category = new Category();
                 category = (Category)row;
-                foreach (Category item in categoryTable)
+                for (int i = 0; i < categoryTable.Count; i++)
                 {
-                    if (item.categoryId == category.categoryId)
+                    if (categoryTable[i].id == category.id)
                     {
-                        item.name = category.name;
-                        flag = 1;
+                        categoryTable[i] = category;
+                        checkAction = 1;
                     }
                 }
             }
-            if (name == "accessory")
+
+            if (name == accessoryName)
             {
                 Accessory accessory = new Accessory();
                 accessory = (Accessory)row;
-                foreach (Accessory item in accessoryTable)
+                for (int i = 0; i < accessoryTable.Count; i++)
                 {
-                    if (item.accessoryId == accessory.accessoryId)
+                    if (accessoryTable[i].id == accessory.id)
                     {
-                        item.name = accessory.name;
-                        flag = 1;
+                        accessoryTable[i] = accessory;
+                        checkAction = 1;
                     }
                 }
             }
-            return flag;
+
+            return checkAction;
         }
+
         /// <summary>
         /// xoa object trong bang
         /// </summary>
@@ -97,92 +143,75 @@ namespace OOPDAY1.com.dd.kieunt.dao
         /// <returns></returns>
         public bool deleteTable(string name, object row)
         {
-            bool value = false;
-            if (name == "product")
+            bool isDeleted = false;
+            if (name == productName)
             {
                 Product product = new Product();
                 product = (Product)row;
-                foreach (Product item in productTable)
-                {
-                    if (item.id == product.id)
-                    {
-                        productTable.Remove(item);
-                        value = true;
-                    }
-                }
+                productTable.RemoveAt(productTable.FindIndex(item => item.id == product.id));
+                isDeleted = true;
             }
-            if (name == "category")
+
+            if (name == categoryName)
             {
                 Category category = new Category();
                 category = (Category)row;
-                foreach (Category item in categoryTable)
-                {
-                    if (item.categoryId == category.categoryId)
-                    {
-                        categoryTable.Remove(item);
-                        value = true;
-                    }
-                }
+                categoryTable.RemoveAt(categoryTable.FindIndex(item => item.id == category.id));
+                isDeleted = true;
             }
-            if (name == "accessory")
+
+            if (name == accessoryName)
             {
                 Accessory accessory = new Accessory();
                 accessory = (Accessory)row;
-                foreach (Accessory item in accessoryTable)
-                {
-                    if (item.accessoryId == accessory.accessoryId)
-                    {
-                        accessoryTable.Remove(item);
-                        value = true;
-                    }
-                }
+                accessoryTable.RemoveAt(accessoryTable.FindIndex(item => item.id == accessory.id));
+                isDeleted = true;
             }
-            return value;
+
+            return isDeleted;
         }
+
         /// <summary>
         /// xoa toan bo danh sách
         /// </summary>
         /// <param name="name" value="string"></param>
         public void truncateTable(string name)
         {
-            if (name == "product")
+            if (name == productName)
             {
-                foreach (Product item in productTable)
-                {
-                    productTable.Remove(item);
-                }
+                productTable.Clear();
             }
-            if (name == "accessory")
-            {
-                foreach (Accessory item in accessoryTable)
-                {
-                    accessoryTable.Remove(item);
-                }
-            }
-            if (name == "category")
-            {
-                foreach (Category item in categoryTable)
-                {
-                    categoryTable.Remove(item);
-                }
 
+            if (name == accessoryName)
+            {
+                productTable.Clear();
+            }
+
+            if (name == categoryName)
+            {
+                productTable.Clear();
             }
         }
+
         /// <summary>
         /// in ra danh sach
         /// </summary>
-        public void printTableTest()
+        public void printTable()
         {
-            Console.WriteLine(productTable.Count);
-            //foreach (Category item in database.categoryTable)
-            //{
-            //    Console.WriteLine("bro");
-            //    Console.WriteLine("Category: " + item.categoryId + " " + item.name + " ");
-            //}
-            //foreach (Accessory item in database.accessoryTable)
-            //{
-            //    Console.WriteLine("Accessory:" + item.accessoryId + " " + item.name + " ");
-            //}
+            foreach (Product item in productTable)
+            {
+                Console.WriteLine("Product: " + item.id + " " + item.name + " " + item.categoryId + " ");
+            }
+
+            foreach (Category item in categoryTable)
+            {
+                Console.WriteLine("Category: " + item.id + " " + item.name + " ");
+            }
+
+            foreach (Accessory item in accessoryTable)
+            {
+                Console.WriteLine("Accessory:" + item.id + " " + item.name + " ");
+            }
         }
     }
 }

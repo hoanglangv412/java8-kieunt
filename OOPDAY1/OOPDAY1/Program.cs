@@ -8,15 +8,13 @@ namespace OOPDAY1
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            DatabaseDemo dm = new DatabaseDemo();
-            CategoryDAO ca = new CategoryDAO();
-            Category category = new Category();
-            category.categoryId = 100;
-            category.name = "kieu";
-            Console.WriteLine(ca.insertCategory(category));
-            dm.printTableTest();
+        static void Main(string[] args) {
+            CategoryDaoDemo cdd = new CategoryDaoDemo();
+            Category a = new Category();
+            a.id = 1;
+            a.name = "kieu";
+            cdd.insertTest(a);
+            Console.WriteLine(cdd.findAllTest());
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ttlntku\\source\\repos\\OOPDAY1\\OOPDAY1\\OOPDAY1.csproj": {}
+    "C:\\DigiDinos\\java8-kieunt\\OOPDAY1\\OOPDAY1\\OOPDAY1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ttlntku\\source\\repos\\OOPDAY1\\OOPDAY1\\OOPDAY1.csproj": {
+    "C:\\DigiDinos\\java8-kieunt\\OOPDAY1\\OOPDAY1\\OOPDAY1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ttlntku\\source\\repos\\OOPDAY1\\OOPDAY1\\OOPDAY1.csproj",
+        "projectUniqueName": "C:\\DigiDinos\\java8-kieunt\\OOPDAY1\\OOPDAY1\\OOPDAY1.csproj",
         "projectName": "OOPDAY1",
-        "projectPath": "C:\\Users\\ttlntku\\source\\repos\\OOPDAY1\\OOPDAY1\\OOPDAY1.csproj",
+        "projectPath": "C:\\DigiDinos\\java8-kieunt\\OOPDAY1\\OOPDAY1\\OOPDAY1.csproj",
         "packagesPath": "C:\\Users\\ttlntku\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ttlntku\\source\\repos\\OOPDAY1\\OOPDAY1\\obj\\",
+        "outputPath": "C:\\DigiDinos\\java8-kieunt\\OOPDAY1\\OOPDAY1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ttlntku\\AppData\\Roaming\\NuGet\\NuGet.Config",

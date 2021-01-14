@@ -4,16 +4,12 @@ using System.Text;
 
 namespace OOPDAY1.com.dd.kieunt.entity
 {
-    public class Product
+    public class Product:BaseRow
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public int categoryId { get; set; }
-        public Product() { }
-        public Product(int id, string name, int categoryId)
+        public int categoryId;
+        public Product():base() { }
+        public Product(int id, string name, int categoryId) : base(id, name)
         {
-            this.id = id;
-            this.name = name;
             this.categoryId = categoryId;
         }
     }

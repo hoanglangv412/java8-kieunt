@@ -4,15 +4,9 @@ using System.Text;
 
 namespace OOPDAY1.com.dd.kieunt.entity
 {
-    public class Accessory
+    public class Accessory : BaseRow
     {
-        public int accessoryId { get; set; }
-        public string name { get; set; }
-        public Accessory() { }
-        public Accessory(int accessoryId, string name)
-        {
-            this.accessoryId = accessoryId;
-            this.name = name;
-        }
+        public Accessory(int id, string name) : base(id, name) { }
+        public Accessory() : base() { }
     }
 }

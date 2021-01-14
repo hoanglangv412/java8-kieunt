@@ -11,3 +11,16 @@ C:\Users\ttlntku\source\repos\OOPDAY1\OOPDAY1\bin\Debug\netcoreapp3.1\OOPDAY1.pd
 C:\Users\ttlntku\source\repos\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.dll
 C:\Users\ttlntku\source\repos\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.pdb
 C:\Users\ttlntku\source\repos\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.genruntimeconfig.cache
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\bin\Debug\netcoreapp3.1\OOPDAY1.exe
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\bin\Debug\netcoreapp3.1\OOPDAY1.deps.json
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\bin\Debug\netcoreapp3.1\OOPDAY1.runtimeconfig.json
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\bin\Debug\netcoreapp3.1\OOPDAY1.runtimeconfig.dev.json
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\bin\Debug\netcoreapp3.1\OOPDAY1.dll
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\bin\Debug\netcoreapp3.1\OOPDAY1.pdb
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.csprojAssemblyReference.cache
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.AssemblyInfoInputs.cache
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.AssemblyInfo.cs
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.csproj.CoreCompileInputs.cache
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.dll
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.pdb
+C:\DigiDinos\java8-kieunt\OOPDAY1\OOPDAY1\obj\Debug\netcoreapp3.1\OOPDAY1.genruntimeconfig.cache

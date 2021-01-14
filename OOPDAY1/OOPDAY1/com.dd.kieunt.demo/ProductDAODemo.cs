@@ -6,30 +6,37 @@ using System.Text;
 
 namespace OOPDAY1.com.dd.kieunt.demo
 {
-    class CategoryDaoDemo
+    class ProductDAODemo
     {
-        CategoryDAO categorydao = new CategoryDAO();
+        ProductDAO productdao = new ProductDAO();
         public void insertTest(BaseRow row)
         {
-            categorydao.Insert(row);
+            productdao.Insert(row);
         }
 
         public void updateTest(BaseRow row)
         {
-            categorydao.Update(row);
+            productdao.Update(row);
         }
 
         public void deleteTest(BaseRow row)
         {
-            categorydao.Delete(row);
+            productdao.Delete(row);
         }
+
         public void findAllTest()
         {
-            categorydao.findAll();
+            productdao.findAll();
         }
+
         public void findByIdTest(int id)
         {
-            categorydao.findById(id);
+            productdao.findById(id);
+        }
+
+        public void findByNameTest(string name)
+        {
+            productdao.findByName(name);
         }
     }
 }
