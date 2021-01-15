@@ -8,28 +8,48 @@ namespace OOPDAY1.com.dd.kieunt.demo
 {
     class CategoryDaoDemo
     {
-        CategoryDAO categorydao = new CategoryDAO();
-        public void insertTest(BaseRow row)
+        CategoryDAO categoryDAO = new CategoryDAO();
+        const string CATEGORY = "category";
+        public string insertTest(BaseRow row)
         {
-            categorydao.Insert(row);
+            if (categoryDAO.Insert(CATEGORY, row))
+            {
+                return "SUCCESS";
+            }
+
+            return "FAIL";
         }
 
-        public void updateTest(BaseRow row)
+        public string updateTest(BaseRow row)
         {
-            categorydao.Update(row);
+            if (categoryDAO.Update(CATEGORY, row))
+            {
+                return "SUCCESS";
+            }
+
+            return "FAIL";
         }
 
-        public void deleteTest(BaseRow row)
+        public string deleteTest(BaseRow row)
         {
-            categorydao.Delete(row);
+            if (categoryDAO.Delete(CATEGORY, row))
+            {
+                return "SUCCESS";
+            }
+
+            return "FAIL";
         }
         public void findAllTest()
         {
-            categorydao.findAll();
+            categoryDAO.findAll();
         }
-        public void findByIdTest(int id)
+        public BaseRow findByIdTest(int id)
         {
-            categorydao.findById(id);
+            return categoryDAO.findById(id);
+        }
+        public Category findByNameTest(string name)
+        {
+            return (Category)categoryDAO.findByName(name);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace OOPDAY1.com.dd.kieunt.demo
 {
     public class DatabaseDemo
     {
-        Database database = new Database();
+        Database database = Database.getInstance();
         /// <summary>
         /// them object vao danh sach
         /// </summary>
@@ -55,34 +55,24 @@ namespace OOPDAY1.com.dd.kieunt.demo
         /// </summary>
         public void initDatabase()
         {
-            List<Product> productList = new List<Product>(){
-                new Product(){name="CPU",id=750,categoryId=1},
-                new Product(){name="RAM",id=500,categoryId=2},
-                new Product(){name="HDD",id=40,categoryId=3},
-                new Product(){name="MAIN",id=400,categoryId=4},
-                new Product(){name = "Keyboard", id=8, categoryId=5},
-                new Product(){name = "Mouse", id= 50, categoryId= 6},
-                new Product(){name = "VGA", id= 35, categoryId= 7},
-                new Product(){name = "Monitor", id= 278, categoryId= 8},
-                new Product(){name = "Case", id= 28, categoryId= 9},
-            };
+            List<Product> productList = new List<Product>();
+            for(int i = 0; i < 10; i++)
+            {
+                BaseRow product = new Product(i, "product " + i,i);
+                productList.Add((Product)product);
+            }
             List<Accessory> accessoryList = new List<Accessory>();
             for (int i = 0; i < 10; i++)
             {
-                BaseRow accessory = new Accessory(i,"accessory"+i);
+                BaseRow accessory = new Accessory(i,"accessory "+i);
                 accessoryList.Add((Accessory)accessory);
             }
-            List<Category> categoryList = new List<Category>(){
-                new Category(){name="CPU",id=1},
-                new Category(){name="RAM",id=2},
-                new Category(){name="HDD",id=3},
-                new Category(){name="MAIN",id=6},
-                new Category(){name = "Keyboard", id=4},
-                new Category(){name = "Mouse", id= 5},
-                new Category(){name = "VGA", id= 7},
-                new Category(){name = "Monitor", id= 8},
-                new Category(){name = "Case", id= 9},
-            };
+            List<Category> categoryList = new List<Category>();
+            for (int i = 0; i < 10; i++)
+            {
+                BaseRow category = new Category(i, "category " + i);
+                categoryList.Add((Category)category);
+            }
             for (int i = 0; i < productList.Count; i++)
             {
                 database.insertTable("product", productList[i]);
@@ -101,18 +91,7 @@ namespace OOPDAY1.com.dd.kieunt.demo
         /// </summary>
         public void printTableTest()
         {
-            foreach (Product item in database.productTable)
-            {
-                Console.WriteLine("Product: " + item.id + " " + item.name + " ");
-            }
-            foreach (Category item in database.categoryTable)
-            {
-                Console.WriteLine("Category: " + item.id + " " + item.name + " ");
-            }
-            foreach (Accessory item in database.accessoryTable)
-            {
-                Console.WriteLine("Accessory:" + item.id + " " + item.name + " ");
-            }
+            database.printTable();
         }
     }
 }

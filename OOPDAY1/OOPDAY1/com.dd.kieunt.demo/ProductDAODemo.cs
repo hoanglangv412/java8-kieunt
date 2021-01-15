@@ -6,37 +6,39 @@ using System.Text;
 
 namespace OOPDAY1.com.dd.kieunt.demo
 {
-    class ProductDAODemo
+    public class productDAODemo
     {
-        ProductDAO productdao = new ProductDAO();
+        ProductDAO productDAO = new ProductDAO();
+        const string PRODUCT = "product";
+        public productDAODemo() { }
         public void insertTest(BaseRow row)
         {
-            productdao.Insert(row);
+            productDAO.Insert(PRODUCT,row);
         }
 
         public void updateTest(BaseRow row)
         {
-            productdao.Update(row);
+            productDAO.Update(PRODUCT,row);
         }
 
         public void deleteTest(BaseRow row)
         {
-            productdao.Delete(row);
+            productDAO.Delete(PRODUCT,row);
         }
 
         public void findAllTest()
         {
-            productdao.findAll();
+            productDAO.findAll();
         }
 
-        public void findByIdTest(int id)
+        public Product findByIdTest(int id)
         {
-            productdao.findById(id);
+            return (Product)productDAO.findById(id);
         }
 
-        public void findByNameTest(string name)
+        public Product findByNameTest(string name)
         {
-            productdao.findByName(name);
+            return productDAO.findByName(name);
         }
     }
 }

@@ -5,79 +5,67 @@ using System.Text;
 
 namespace OOPDAY1.com.dd.kieunt.dao
 {
-    class CategoryDAO : BaseRowDAO
+    class CategoryDAO : IDao
     {
-        const string categoryName = "category";
-        Database database = new Database();
+        Database database = Database.getInstance();
+        private const string CATEGORY = "category";
+        ///// <summary>
+        ///// tim category theo id
+        ///// </summary>
+        ///// <param name="name" value="string"></param>
+        ///// <returns value="BaseRow"></returns>
+        //public override BaseRow findById(int id)
+        //{
+        //    return (BaseRow)database.findById(CATEGORY, id);
+        //}
 
-        /// <summary>
-        /// xoa 1 phan tu trong danh sach
-        /// </summary>
-        /// <param name="row" value="object"></param>
-        /// <returns name="checkAction" value="bool"></returns>
-        public override bool Delete(BaseRow row)
+        ///// <summary>
+        ///// tim category theo name
+        ///// </summary>
+        ///// <param name="name" value="string"></param>
+        ///// <returns value="BaseRow"></returns>
+        //public Category findByName(string name)
+        //{
+        //    return (Category)database.findByName(CATEGORY, name);
+        //}
+        public bool Delete(string name, BaseRow row)
         {
-            bool checkAction = false;
-            if (database.deleteTable(categoryName, row)) checkAction = true;
+            if (database.deleteTable(name, row)) return true;
 
-            return checkAction;
+            return false;
         }
 
-        /// <summary>
-        /// lay toan bo danh sach
-        /// </summary>
-        public override List<object> findAll()
+        public void findAll()
         {
-            List<object> returnList = new List<object>();
-            foreach (Category item in database.categoryTable)
-            {
-                returnList.Add(item);
-            }
-            return returnList;
+            database.printTable();
         }
 
-        /// <summary>
-        /// them vao danh sach
-        /// </summary>
-        /// <param name="row" value="object"></param>
-        /// <returns name="checkAction" value="bool"></returns>
-        public override bool Insert(BaseRow row)
+        public BaseRow findById(int id)
         {
-            bool checkAction = false;
-            if (database.insertTable(categoryName, row) == 1) checkAction = true;
-
-            return checkAction;
+            return (BaseRow)database.findById(CATEGORY, id);
+        }
+        public BaseRow findByName(string name)
+        {
+            return (Category)database.findByName(CATEGORY, name);
         }
 
-        /// <summary>
-        /// cap nhat vao danh sach
-        /// </summary>
-        /// <param name="row" value="object"></param>
-        /// <returns name="checkAction" value="bool"></returns>
-        public override bool Update(BaseRow row)
+        public void findOneTable(string name)
         {
-            bool checkAction = false;
-            if (database.updateTable(categoryName, row) == 1) checkAction = true;
-
-            return checkAction;
+            database.printTable(name);
         }
-        /// <summary>
-        /// tim phan tu theo id
-        /// </summary>
-        /// <param name="name" value="string"></param>
-        /// <returns name="category" value="Category"></returns>
-        public Category findById(int name)
-        {
-            Category category = new Category();
-            foreach(Category item in database.categoryTable)
-            {
-                if(item.id == name)
-                {
-                    category = item;
-                }
-            }
 
-            return category;
+        public bool Insert(string name, BaseRow row)
+        {
+            if (database.insertTable(name, row) == 1) return true;
+
+            return false;
+        }
+
+        public bool Update(string name, BaseRow row)
+        {
+            if (database.updateTable(name, row) == 1) return true;
+
+            return false;
         }
     }
 }

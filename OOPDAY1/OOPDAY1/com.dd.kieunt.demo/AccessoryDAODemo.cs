@@ -9,20 +9,31 @@ namespace OOPDAY1.com.dd.kieunt.demo
     class AccessoryDAODemo
     {
         AccessoryDAO accessoryDAO = new AccessoryDAO();
-        const string accessoryName = "accessory";
-        public void insertTest(Accessory row)
+        private const string ACCESSORY = "accessory";
+        public string insertTest(Accessory row)
         {
-            accessoryDAO.Insert(row);
+            if (accessoryDAO.Insert(ACCESSORY, row)){
+                return "SUCCESS";
+            }
+            return "FAIL";
         }
 
-        public void updateTest(Accessory row)
+        public string updateTest(Accessory row)
         {
-            accessoryDAO.Update(row);
+            if (accessoryDAO.Update(ACCESSORY, row))
+            {
+                return "SUCCESS";
+            }
+            return "FAIL";
         }
 
-        public void deleteTest(Accessory row)
+        public string deleteTest(Accessory row)
         {
-            accessoryDAO.Delete(row);
+            if (accessoryDAO.Delete(ACCESSORY, row))
+            {
+                return "SUCCESS";
+            }
+            return "FAIL";
         }
 
         public void findAllTest()
@@ -30,14 +41,14 @@ namespace OOPDAY1.com.dd.kieunt.demo
             accessoryDAO.findAll();
         }
 
-        public void findByIdTest(int id)
+        public BaseRow findByIdTest(int id)
         {
-            accessoryDAO.findById(id);
+            return accessoryDAO.findById(id);
         }
 
-        public void findByNameTest(string name)
+        public Accessory findByNameTest(string name)
         {
-            accessoryDAO.findByName(name);
+            return accessoryDAO.findByName(name);
         }
     }
 }

@@ -19,16 +19,16 @@ namespace OOPDAY1.com.dd.kieunt.demo
         {
             Product a = new Product();
             Console.Write("ID: ");
-            a.id = Convert.ToInt32(Console.ReadLine());
+            a.setId(Convert.ToInt32(Console.ReadLine()));
             Console.Write("Name: ");
-            a.name = Console.ReadLine();
+            a.setName(Console.ReadLine());
             Console.Write("categoryId: ");
-            a.categoryId = Convert.ToInt32(Console.ReadLine());
+            a.setCategoryId(Convert.ToInt32(Console.ReadLine()));
             return a;
         }
         public void printProduct(Product a)
         {
-            Console.Write("Name: " + a.name + "   ID: " + a.id + "   categoryId: " + a.categoryId);
+            Console.Write("Name: " + a.getName() + "   ID: " + a.getId() + "   categoryId: " + a.getCategoryId());
         }
     }
 }
