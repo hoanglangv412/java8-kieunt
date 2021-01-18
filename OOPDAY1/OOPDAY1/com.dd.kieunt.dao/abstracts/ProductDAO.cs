@@ -1,4 +1,5 @@
 ﻿using OOPDAY1.com.dd.kieunt.entity;
+using OOPDAY1.com.dd.kieunt.entity.abstracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,25 +8,24 @@ namespace OOPDAY1.com.dd.kieunt.dao
 {
     class ProductDAO : BaseDAO
     {
-        private const string PRODUCT = "product";
         /// <summary>
         /// tim product theo id
         /// </summary>
-        /// <param name="name" value="int"></param>
-        /// <returns name="product" value="Product"></returns>
+        /// <param name="id" value="int"></param>
+        /// <returns value="BaseRow"></returns>
         public override BaseRow findById(int id)
         {
-            return (Product)database.findById(PRODUCT, id);
+            return database.findById(DatabaseAbstracts.getProductName(), id);
         }
 
         /// <summary>
-        /// tim category theo name
+        /// tim product theo name
         /// </summary>
         /// <param name="name" value="string"></param>
-        /// <returns name="product" value="Product"></returns>
-        public Product findByName(string name)
+        /// <returns value="BaseRow"></returns>
+        public BaseRow findByName(string name)
         {
-            return (Product)database.findByName(PRODUCT, name);
+            return database.findByName(DatabaseAbstracts.getProductName(), name);
         }
     }
 }

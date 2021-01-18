@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OOPDAY1.com.dd.kieunt.entity
+namespace OOPDAY1.com.dd.kieunt.entity.abstracts
 {
     public class Accessory : BaseRow
     {

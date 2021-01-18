@@ -1,22 +1,20 @@
 ﻿using OOPDAY1.com.dd.kieunt.dao;
-using OOPDAY1.com.dd.kieunt.entity;
-using OOPDAY1.com.dd.kieunt.entity.abstracts;
+using OOPDAY1.com.dd.kieunt.entity.interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace OOPDAY1.com.dd.kieunt.demo
 {
-    public class DatabaseDemo
+    class DatabaseDemoInterface
     {
-        DatabaseAbstracts database = DatabaseAbstracts.getInstance();
+        DatabaseInterfaces database = DatabaseInterfaces.getInstance();
         /// <summary>
-        /// them BaseRow vao danh sach
+        /// them IEntity vao danh sach
         /// </summary>
         /// <param name="name" value="string"></param>
-        /// <param name="row" value="BaseRow"></param>
-        public void insertTableTest(string name, BaseRow row)
+        /// <param name="row" value="IEntity"></param>
+        public void insertTableTest(string name, IEntity row)
         {
             database.insertTable(name, row);
         }
@@ -25,8 +23,8 @@ namespace OOPDAY1.com.dd.kieunt.demo
         /// cap nhat danh sach
         /// </summary>
         /// <param name="name" value="string"></param>
-        /// <param name="row" value="BaseRow"></param>
-        public void updateTableTest(string name, BaseRow row)
+        /// <param name="row" value="IEntity"></param>
+        public void updateTableTest(string name, IEntity row)
         {
             database.updateTable(name, row);
         }
@@ -35,8 +33,8 @@ namespace OOPDAY1.com.dd.kieunt.demo
         /// xoa bang theo row
         /// </summary>
         /// <param name="name" value="string"></param>
-        /// <param name="row" value="BaseRow"></param>
-        public void deleteTableTest(string name, BaseRow row)
+        /// <param name="row" value="IEntity"></param>
+        public void deleteTableTest(string name, IEntity row)
         {
             database.deleteTable(name, row);
         }
@@ -51,54 +49,54 @@ namespace OOPDAY1.com.dd.kieunt.demo
         }
 
         /// <summary>
-        /// tra ve danh sach theo ten
+        /// lay danh sach theo ten
         /// </summary>
         /// <param name="name" value="string"></param>
-        /// <returns value="List<BaseRow>"></returns>
-        public List<BaseRow> selectTableTest(string name)
+        /// <returns value="List<IEntity>"></returns>
+        public List<IEntity> selectTableTest(string name)
         {
             return database.selectTable(name);
         }
 
         /// <summary>
-        ///  khoi tao bang
+        ///  khoi tao cac danh sach
         /// </summary>
         public void initDatabase()
         {
             List<Product> productList = new List<Product>();
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                BaseRow product = new Product(i, "product " + i,i);
+                IEntity product = new Product(i, "product " + i, i);
                 productList.Add((Product)product);
             }
 
             List<Accessory> accessoryList = new List<Accessory>();
             for (int i = 0; i < 10; i++)
             {
-                BaseRow accessory = new Accessory(i,"accessory "+i);
+                IEntity accessory = new Accessory(i, "accessory " + i);
                 accessoryList.Add((Accessory)accessory);
             }
 
             List<Category> categoryList = new List<Category>();
             for (int i = 0; i < 10; i++)
             {
-                BaseRow category = new Category(i, "category " + i);
+                IEntity category = new Category(i, "category " + i);
                 categoryList.Add((Category)category);
             }
 
             for (int i = 0; i < productList.Count; i++)
             {
-                database.insertTable(DatabaseAbstracts.getProductName(), productList[i]);
+                database.insertTable("product", productList[i]);
             }
 
             for (int i = 0; i < categoryList.Count; i++)
             {
-                database.insertTable(DatabaseAbstracts.getCategoryName(), categoryList[i]);
+                database.insertTable("category", categoryList[i]);
             }
 
             for (int i = 0; i < accessoryList.Count; i++)
             {
-                database.insertTable(DatabaseAbstracts.getAccessoryName(), accessoryList[i]);
+                database.insertTable("accessory", accessoryList[i]);
             }
         }
 
@@ -107,19 +105,19 @@ namespace OOPDAY1.com.dd.kieunt.demo
         /// </summary>
         public void findAllTableTest()
         {
-            List<BaseRow> listProduct = database.findAll()[0];
+            List<IEntity> listProduct = database.findAll()[0];
             foreach (Product item in listProduct)
             {
                 Console.WriteLine("kekekeProduct: " + item.getId() + item.getName() + item.getCategoryId());
             }
 
-            List<BaseRow> listCategory = database.findAll()[1];
+            List<IEntity> listCategory = database.findAll()[1];
             foreach (Category item in listCategory)
             {
                 Console.WriteLine("kekekeCategory: " + item.getId() + item.getName());
             }
 
-            List<BaseRow> listAccessory = database.findAll()[2];
+            List<IEntity> listAccessory = database.findAll()[2];
             foreach (Accessory item in listAccessory)
             {
                 Console.WriteLine("kekekeAccessory: " + item.getId() + item.getName());

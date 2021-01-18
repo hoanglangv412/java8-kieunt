@@ -1,4 +1,5 @@
 ﻿using OOPDAY1.com.dd.kieunt.entity;
+using OOPDAY1.com.dd.kieunt.entity.abstracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,6 +27,7 @@ namespace OOPDAY1.com.dd.kieunt.demo
             a.setCategoryId(Convert.ToInt32(Console.ReadLine()));
             return a;
         }
+
         public void printProduct(Product a)
         {
             Console.Write("Name: " + a.getName() + "   ID: " + a.getId() + "   categoryId: " + a.getCategoryId());

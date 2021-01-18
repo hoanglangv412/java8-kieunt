@@ -1,4 +1,5 @@
 ﻿using OOPDAY1.com.dd.kieunt.entity;
+using OOPDAY1.com.dd.kieunt.entity.abstracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ namespace OOPDAY1.com.dd.kieunt.dao
 {
     public abstract class BaseDAO
     {
-        protected Database database = Database.getInstance();
+        protected DatabaseAbstracts database = DatabaseAbstracts.getInstance();
 
         /// <summary>
         /// them 1 phan tu vao danh sach
@@ -48,27 +49,20 @@ namespace OOPDAY1.com.dd.kieunt.dao
         }
 
         /// <summary>
-        /// in ra toan bo bang
-        /// </summary>
-        public virtual void findAll()
-        {
-            database.printTable();
-        }
-
-        /// <summary>
-        /// in ra 1 bang theo ten
+        /// tra ve danh sach theo ten
         /// </summary>
         /// <param name="name" value="string"></param>
-        public virtual void findOneTable(string name)
+        /// <returns value="List<BaseRow>"></returns>
+        public virtual List<BaseRow> findAll(string name)
         {
-            database.printTable(name);
+            return database.findOneTable(name);
         }
 
         /// <summary>
         /// tim phan tu theo id
         /// </summary>
         /// <param name="id" value="int"></param>
-        /// <returns></returns>
+        /// <returns value="BaseRow"></returns>
         public abstract BaseRow findById(int id);
     }
 }

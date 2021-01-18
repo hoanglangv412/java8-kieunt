@@ -1,4 +1,5 @@
 ﻿using OOPDAY1.com.dd.kieunt.entity;
+using OOPDAY1.com.dd.kieunt.entity.abstracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,15 +8,14 @@ namespace OOPDAY1.com.dd.kieunt.dao
 {
     class AccessoryDAO : BaseDAO
     {
-        private const string ACCESSORY = "accessory";
         /// <summary>
         /// tim accessory theo id
         /// </summary>
-        /// <param name="name" value="string"></param>
+        /// <param name="id" value="int"></param>
         /// <returns value="BaseRow"></returns>
         public override BaseRow findById(int id)
         {
-            return (BaseRow)database.findById(ACCESSORY, id);
+            return (BaseRow)database.findById(DatabaseAbstracts.getAccessoryName(), id);
         }
 
         /// <summary>
@@ -23,9 +23,9 @@ namespace OOPDAY1.com.dd.kieunt.dao
         /// </summary>
         /// <param name="name" value="string"></param>
         /// <returns value="BaseRow"></returns>
-        public Accessory findByName(string name)
+        public BaseRow findByName(string name)
         {
-            return (Accessory)database.findByName(ACCESSORY, name);
+            return database.findByName(DatabaseAbstracts.getAccessoryName(), name);
         }
     }
 }
