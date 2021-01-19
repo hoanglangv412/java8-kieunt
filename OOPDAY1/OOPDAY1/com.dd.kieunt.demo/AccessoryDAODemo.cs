@@ -1,6 +1,5 @@
 ﻿using OOPDAY1.com.dd.kieunt.dao;
 using OOPDAY1.com.dd.kieunt.entity;
-using OOPDAY1.com.dd.kieunt.entity.abstracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +11,7 @@ namespace OOPDAY1.com.dd.kieunt.demo
         AccessoryDAO accessoryDAO = new AccessoryDAO();
         public string insertTest(Accessory row)
         {
-            if (accessoryDAO.Insert(DatabaseAbstracts.getAccessoryName(), row)){
+            if (accessoryDAO.Insert(Database.getAccessoryName(), row)){
                 return "SUCCESS";
             }
             return "FAIL";
@@ -20,7 +19,7 @@ namespace OOPDAY1.com.dd.kieunt.demo
 
         public string updateTest(Accessory row)
         {
-            if (accessoryDAO.Update(DatabaseAbstracts.getAccessoryName(), row))
+            if (accessoryDAO.Update(Database.getAccessoryName(), row))
             {
                 return "SUCCESS";
             }
@@ -29,19 +28,19 @@ namespace OOPDAY1.com.dd.kieunt.demo
 
         public string deleteTest(Accessory row)
         {
-            if (accessoryDAO.Delete(DatabaseAbstracts.getAccessoryName(), row))
+            if (accessoryDAO.Delete(Database.getAccessoryName(), row))
             {
                 return "SUCCESS";
             }
             return "FAIL";
         }
 
-        public List<BaseRow> findAllTest(string name)
+        public List<IEntity> findAllTest(string name)
         {
             return accessoryDAO.findAll(name);
         }
 
-        public BaseRow findByIdTest(int id)
+        public IEntity findByIdTest(int id)
         {
             return accessoryDAO.findById(id);
         }

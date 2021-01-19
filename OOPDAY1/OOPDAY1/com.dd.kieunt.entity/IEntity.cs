@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OOPDAY1.com.dd.kieunt.entity.interfaces
+namespace OOPDAY1.com.dd.kieunt.entity
 {
     public interface IEntity
     {

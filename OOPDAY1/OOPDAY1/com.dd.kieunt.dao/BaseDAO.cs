@@ -1,16 +1,16 @@
-﻿using OOPDAY1.com.dd.kieunt.entity.interfaces;
+﻿using OOPDAY1.com.dd.kieunt.entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace OOPDAY1.com.dd.kieunt.dao
 {
-    class CategoryIDAO : IDao
+    public abstract class BaseDAO : IDao
     {
-        DatabaseInterfaces database = DatabaseInterfaces.getInstance();
+        protected Database database = Database.getInstance();
 
         /// <summary>
-        /// xoa 1 phan tu theo danh sach 
+        /// xoa phan tu
         /// </summary>
         /// <param name="name" value="string"></param>
         /// <param name="row" value="IEntity"></param>
@@ -23,32 +23,7 @@ namespace OOPDAY1.com.dd.kieunt.dao
         }
 
         /// <summary>
-        /// tra ve danh sach theo ten
-        /// </summary>
-        /// <param name="name" value="string"></param>
-        /// <returns></returns>
-        public List<IEntity> findAll(string name)
-        {
-            return database.findOneTable(name);
-        }
-
-        /// <summary>
-        /// tim category theo id
-        /// </summary>
-        /// <param name="id" value="int"></param>
-        /// <returns value="IEntity"></returns>
-        public IEntity findById(int id)
-        {
-            return (IEntity)database.findById(DatabaseInterfaces.getCategoryName(), id);
-        }
-
-        public IEntity findByName(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// them vao danh sach 1 doi tuong truyen vao
+        /// them phan tu
         /// </summary>
         /// <param name="name" value="string"></param>
         /// <param name="row" value="IEntity"></param>
@@ -61,7 +36,7 @@ namespace OOPDAY1.com.dd.kieunt.dao
         }
 
         /// <summary>
-        /// cap nhat danh sach voi 1 doi tuong truyen vao
+        /// cap nhat phan tu
         /// </summary>
         /// <param name="name" value="string"></param>
         /// <param name="row" value="IEntity"></param>
@@ -72,5 +47,19 @@ namespace OOPDAY1.com.dd.kieunt.dao
 
             return false;
         }
+
+        /// <summary>
+        /// tra ve danh sach phan tu theo ten
+        /// </summary>
+        /// <param name="name" value="string"></param>
+        /// <returns value="List<IEntity>"></returns>
+        public List<IEntity> findAll(string name)
+        {
+            return database.findOneTable(name);
+        }
+
+        public abstract IEntity findById(int id);
+
+        public abstract IEntity findByName(string name);
     }
 }

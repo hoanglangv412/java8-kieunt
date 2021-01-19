@@ -1,4 +1,5 @@
-﻿using OOPDAY1.com.dd.kieunt.entity.interfaces;
+﻿
+using OOPDAY1.com.dd.kieunt.entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,7 @@ namespace OOPDAY1.com.dd.kieunt.dao
         public bool Update(string name, IEntity row);
         public bool Delete(string name, IEntity row);
         public List<IEntity> findAll(string name);
-        public IEntity findById(int id);
-        public IEntity findByName(string name);
+        public abstract IEntity findById(int id);
+        public abstract IEntity findByName(string name);
     }
 }

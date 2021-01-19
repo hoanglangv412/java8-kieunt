@@ -1,5 +1,4 @@
 ﻿using OOPDAY1.com.dd.kieunt.entity;
-using OOPDAY1.com.dd.kieunt.entity.abstracts;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,19 +1,18 @@
 ﻿using OOPDAY1.com.dd.kieunt.dao;
-using OOPDAY1.com.dd.kieunt.dao.interfaces;
+using OOPDAY1.com.dd.kieunt.dao.abstracts;
 using OOPDAY1.com.dd.kieunt.entity;
-using OOPDAY1.com.dd.kieunt.entity.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OOPDAY1.com.dd.kieunt.demo.testInterfaces
+namespace OOPDAY1.com.dd.kieunt.demo
 {
-    class CategoryIDaoDemo
+    class CategoryDaoDemo
     {
-        CategoryIDAO categoryIDAO = new CategoryIDAO();
+        CategoryDAO categoryDAO = new CategoryDAO();
         public string insertTest(Category row)
         {
-            if (categoryIDAO.Insert(DatabaseInterfaces.getCategoryName(), row))
+            if (categoryDAO.Insert(Database.getCategoryName(), row))
             {
                 return "SUCCESS";
             }
@@ -23,7 +22,7 @@ namespace OOPDAY1.com.dd.kieunt.demo.testInterfaces
 
         public string updateTest(Category row)
         {
-            if (categoryIDAO.Update(DatabaseInterfaces.getCategoryName(), row))
+            if (categoryDAO.Update(Database.getCategoryName(), row))
             {
                 return "SUCCESS";
             }
@@ -33,7 +32,7 @@ namespace OOPDAY1.com.dd.kieunt.demo.testInterfaces
 
         public string deleteTest(Category row)
         {
-            if (categoryIDAO.Delete(DatabaseInterfaces.getCategoryName(), row))
+            if (categoryDAO.Delete(Database.getCategoryName(), row))
             {
                 return "SUCCESS";
             }
@@ -42,12 +41,11 @@ namespace OOPDAY1.com.dd.kieunt.demo.testInterfaces
         }
         public List<IEntity> findAllTest(string name)
         {
-            return categoryIDAO.findAll(name);
+            return categoryDAO.findAll(name);
         }
-
         public IEntity findByIdTest(int id)
         {
-            return categoryIDAO.findById(id);
+            return categoryDAO.findById(id);
         }
     }
 }

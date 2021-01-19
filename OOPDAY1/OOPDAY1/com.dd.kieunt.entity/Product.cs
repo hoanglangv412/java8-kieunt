@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OOPDAY1.com.dd.kieunt.entity.interfaces
+namespace OOPDAY1.com.dd.kieunt.entity
 {
-    public class Product:IEntity
+    public class Product:BaseRow
     {
-        private int id;
-        private string name;
         private int categoryId;
 
-        public Product() { }
+        public Product():base() { }
         public Product(int id, string name,int categoryId)
         {
             this.id = id;
@@ -24,26 +22,6 @@ namespace OOPDAY1.com.dd.kieunt.entity.interfaces
         public void setCategoryId(int categoryId)
         {
             this.categoryId = categoryId;
-        }
-
-        public int getId()
-        {
-            return this.id;
-        }
-
-        public void setId(int id)
-        {
-            this.id = id;
-        }
-
-        public string getName()
-        {
-            return this.name;
-        }
-
-        public void setName(string name)
-        {
-            this.name = name;
         }
     }
 }

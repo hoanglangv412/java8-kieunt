@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OOPDAY1.com.dd.kieunt.entity.abstracts
+namespace OOPDAY1.com.dd.kieunt.entity
 {
-    public abstract class BaseRow
+    public abstract class BaseRow : IEntity
     {
-        private int id;
-        private string name;
+        protected int id;
+        protected string name;
 
         public virtual int getId()
         {
